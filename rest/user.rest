@@ -1,4 +1,9 @@
-@api_url = http://localhost:3000/api
+@api_url = http://localhost:4000/api
 
+### Get All Users
 GET {{api_url}}/users
+Accept: application/json
+
+### Get User by ID
+GET {{api_url}}/users/d472a824-62e7-4898-9442-03d3d3d2ca1b
 Accept: application/json

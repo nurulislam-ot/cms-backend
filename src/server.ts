@@ -8,12 +8,14 @@ import { sequelize } from "./config/sequelize.js"
 declare module "express-serve-static-core" {
   interface Request {
     validated?: any
-    user?: any // also fix `req.user` from auth middleware
+    user?: {
+      id: string
+    }
   }
 }
 
-app.listen(3000, async () => {
-  console.log("Server is running on port 3000")
+app.listen(process.env.PORT, async () => {
+  console.log(`Server is running on port ${process.env.PORT}`)
   try {
     await sequelize.authenticate()
     initModels()
