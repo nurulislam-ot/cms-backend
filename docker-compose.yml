@@ -1,10 +1,14 @@
 services:
-  # cms-backend:
-  #   build: .
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - cms-database
+  cms-backend:
+    build: .
+    ports:
+      - 4000:4000
+    depends_on:
+      - cms-database
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgres://root:password@cms-database:5432/cmsdb
   cms-database:
     image: postgres:15
     environment:
