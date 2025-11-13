@@ -13,7 +13,7 @@ const router = express.Router()
 
 router.post(
   "/",
-  auth,
+  asyncHandler(auth),
   validate(createContentSchema),
   asyncHandler(contentController.createContent)
 )
@@ -23,10 +23,14 @@ router.get("/:userId", asyncHandler(contentController.getContentsByUser))
 
 router.put(
   "/",
-  auth,
+  asyncHandler(auth),
   validate(updateContentSchema),
   asyncHandler(contentController.updateContent)
 )
-router.delete("/:id", auth, asyncHandler(contentController.deleteContent))
+router.delete(
+  "/:id",
+  asyncHandler(auth),
+  asyncHandler(contentController.deleteContent)
+)
 
 export default router

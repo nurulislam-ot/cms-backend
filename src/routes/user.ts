@@ -1,4 +1,5 @@
 import express from "express"
+import { asyncHandler } from "express-error-toolkit"
 
 import auth from "../middlewares/auth.js"
 import validate from "../middlewares/validate.js"
@@ -7,9 +8,14 @@ import { updateProfileSchema } from "../validations/user.js"
 
 const router = express.Router()
 
-router.get("/", userController.getUsers)
-router.get("/:id", userController.getUserById)
-router.get("/me", auth, userController.getMe)
-router.put("/me", auth, validate(updateProfileSchema), userController.updateMe)
+router.get("/", asyncHandler(userController.getUsers))
+router.get("/:id", asyncHandler(userController.getUserById))
+router.get("/me", asyncHandler(auth), asyncHandler(userController.getMe))
+router.put(
+  "/me",
+  asyncHandler(auth),
+  validate(updateProfileSchema),
+  asyncHandler(userController.updateMe)
+)
 
 export default router
