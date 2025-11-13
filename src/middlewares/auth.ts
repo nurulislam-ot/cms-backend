@@ -10,7 +10,7 @@ export default async function authMiddleware(
   next: NextFunction
 ) {
   const token = req.cookies.token
-  if (!token) throw new BadRequestError("No token provided")
+  if (!token) throw new BadRequestError("Unauthorized")
 
   const payload = verifyToken(token) as { id: string }
 

@@ -8,7 +8,7 @@ import { sequelize } from "./config/sequelize.js"
 declare module "express-serve-static-core" {
   interface Request {
     validated?: any
-    user?: {
+    user: {
       id: string
     }
   }

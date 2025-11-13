@@ -41,16 +41,8 @@ class UserController {
 
   async updateMe(req: Request, res: Response) {
     const updates = req.validated
-    const user = req.user
-    await user.update(updates)
-    return res.json(
-      ResponseService.success({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        bio: user.bio,
-      })
-    )
+    const data = await userRepository.updateUser(req.user.id, updates)
+    return res.json(ResponseService.success(data))
   }
 }
 

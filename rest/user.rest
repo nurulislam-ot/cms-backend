@@ -7,3 +7,6 @@ Accept: application/json
 ### Get User by ID
 GET {{api_url}}/users/d472a824-62e7-4898-9442-03d3d3d2ca1b
 Accept: application/json
+
+### Get Me
+GET {{api_url}}/users/me

@@ -20,15 +20,20 @@ setErrorOptions({
   logError: process.env.NODE_ENV !== "production",
 })
 
-app.use(cors())
 app.use(cookie())
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+    credentials: true,
+  })
+)
 app.use(express.json())
 app.use(morgan("dev"))
 
 // routes
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
-app.use("/api/content", contentRoutes)
+app.use("/api/contents", contentRoutes)
 
 // health
 app.get("/", (req, res) =>

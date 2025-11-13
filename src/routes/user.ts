@@ -9,8 +9,8 @@ import { updateProfileSchema } from "../validations/user.js"
 const router = express.Router()
 
 router.get("/", asyncHandler(userController.getUsers))
-router.get("/:id", asyncHandler(userController.getUserById))
 router.get("/me", asyncHandler(auth), asyncHandler(userController.getMe))
+router.get("/:id", asyncHandler(userController.getUserById))
 router.put(
   "/me",
   asyncHandler(auth),

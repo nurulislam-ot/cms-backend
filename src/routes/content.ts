@@ -19,7 +19,8 @@ router.post(
 )
 
 router.get("/", asyncHandler(contentController.getAllContents))
-router.get("/:userId", asyncHandler(contentController.getContentsByUser))
+router.get("/:content_id", asyncHandler(contentController.getContentById))
+router.get("/user/:user_id", asyncHandler(contentController.getContentsByUser))
 
 router.put(
   "/",

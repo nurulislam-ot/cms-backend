@@ -2,18 +2,17 @@
 
 
 ### Create Content
-POST {{api_url}}/content
+POST {{api_url}}/contents
 Content-Type: application/json
-Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzNWUzNzQ4LWZkYjMtNDZjNS05Nzc1LWJhODc3MWZmOWFkOSIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NjMwMzM5OTksImV4cCI6MTc2MzYzODc5OX0.Yfwu3Deu4doHs1Ru-g9wn4w9VHhGGk3LBcRXUucsZQM
 
 {
-  "title": "Sample Content",
-  "description": "This is a sample description for the content."
+  "title": "How to Start A Blog in 2025",
+  "description": "After completing this guide you will have a beautiful blog that is ready to share with the world. This guide is made especially for beginners. I will walk you through each and every step, using plenty of pictures and videos to make it all perfectly clear. If you get stuck or have questions at any point, simply send me a message and I will do my best to help you out."
 }
 
 
 ### Update Content
-PUT {{api_url}}/content
+PUT {{api_url}}/contents
 Content-Type: application/json
 
 {
@@ -24,9 +23,10 @@ Content-Type: application/json
 
 
 ### Get All Content
-GET {{api_url}}/content
+GET {{api_url}}/contents
 Content-Type: application/json
 
+
 ### Get Content by ID
-GET {{api_url}}/content/d472a824-62e7-4898-9442-03d3d3d2ca1b
+GET {{api_url}}/contents/d472a824-62e7-4898-9442-03d3d3d2ca1b
 Content-Type: application/json

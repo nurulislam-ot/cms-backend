@@ -1,25 +1,28 @@
 import Content from "../models/content.js"
 
 class ContentRepository {
-  getContentsByUserId(userId: string) {
+  getContentsByUserId(user_id: string) {
     return Content.findAll({
-      where: { userId },
+      where: { user_id },
       order: [["createdAt", "DESC"]],
+      include:[{
+        attributes: ["name", "id"],
+        association: "user",
+      }]
     })
   }
 
   createContent(data: {
-    title: string
-    youtube_link?: string
+    user_id: string
     description?: string
-    userId: string
+    youtube_link?: string
   }) {
     return Content.create(data)
   }
 
   updateContent(
     id: string,
-    data: { title?: string; youtube_link?: string; description?: string }
+    data: { youtube_link?: string; description?: string }
   ) {
     return Content.update(data, { where: { id } })
   }
@@ -33,7 +36,15 @@ class ContentRepository {
   }
 
   getAllContents() {
-    return Content.findAll({ order: [["createdAt", "DESC"]] })
+    return Content.findAll({
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          attributes: ["name", "id"],
+          association: "user",
+        },
+      ],
+    })
   }
 }
 
