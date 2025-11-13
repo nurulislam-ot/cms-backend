@@ -1,0 +1,32 @@
+@api_url = http://localhost:3000/api
+
+
+### Create Content
+POST {{api_url}}/content
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMzNWUzNzQ4LWZkYjMtNDZjNS05Nzc1LWJhODc3MWZmOWFkOSIsImVtYWlsIjoidGVzdHVzZXJAZXhhbXBsZS5jb20iLCJpYXQiOjE3NjMwMzM5OTksImV4cCI6MTc2MzYzODc5OX0.Yfwu3Deu4doHs1Ru-g9wn4w9VHhGGk3LBcRXUucsZQM
+
+{
+  "title": "Sample Content",
+  "description": "This is a sample description for the content."
+}
+
+
+### Update Content
+PUT {{api_url}}/content
+Content-Type: application/json
+
+{
+  "id": "838f92b0-615c-40bd-9d0b-8dce15b90254",
+  "title": "Updated Sample Content",
+  "description": "This is an updated description for the content."
+}
+
+
+### Get All Content
+GET {{api_url}}/content
+Content-Type: application/json
+
+### Get Content by ID
+GET {{api_url}}/content/d472a824-62e7-4898-9442-03d3d3d2ca1b
+Content-Type: application/json

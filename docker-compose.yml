@@ -1,0 +1,19 @@
+services:
+  # cms-backend:
+  #   build: .
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - cms-database
+  cms-database:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: cmsdb
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
